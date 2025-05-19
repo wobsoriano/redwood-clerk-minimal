@@ -29,3 +29,4 @@ Point your browser to the URL displayed in the terminal (e.g. `http://localhost:
 
 - [RedwoodSDK Documentation](https://docs.rwsdk.com/)
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers)
+- [Clerk Documentation](https://clerk.com/docs)
