@@ -8,6 +8,7 @@ import { clerkMiddleware, type AuthObject } from '@/app/lib/clerkMiddleware'
 import { SignIn } from "@/app/pages/SignIn";
 import { SignUp } from "@/app/pages/SignUp";
 import { Profile } from "@/app/pages/Profile";
+import { link } from "@/app/shared/links";
 
 export type AppContext = {
   auth: AuthObject | null
@@ -18,7 +19,7 @@ const IsUnauthenticated: RouteMiddleware = ({ ctx }) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: '/profile',
+        Location: link('/sign-in'),
       },
     });
   }
@@ -29,7 +30,7 @@ const IsAuthenticated: RouteMiddleware = ({ ctx }) => {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: '/sign-in',
+        Location: link('/sign-in'),
       },
     });
   }
