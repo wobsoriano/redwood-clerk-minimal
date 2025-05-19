@@ -10,6 +10,8 @@ export const Layout = ({ children }: PropsWithChildren) => {
       publishableKey={env.CLERK_PUBLISHABLE_KEY}
       signInUrl={env.CLERK_SIGN_IN_URL}
       signUpUrl={env.CLERK_SIGN_UP_URL}
+      signInFallbackRedirectUrl={env.CLERK_SIGN_IN_FALLLBACK_REDIRECT_URL}
+      signUpFallbackRedirectUrl={env.CLERK_SIGN_UP_FALLLBACK_REDIRECT_URL}
 		>
 			{children}
 		</ClerkProvider>
