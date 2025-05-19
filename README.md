@@ -5,7 +5,7 @@ This starter gives you a bare-bones RedwoodSDK + Clerk project.
 Create your new project:
 
 ```shell
-npx degit wobsoriano/redwood-sdk-minimal my-project-name
+npx degit wobsoriano/redwood-clerk-minimal my-project-name
 cd my-project-name
 npm install
 ```
