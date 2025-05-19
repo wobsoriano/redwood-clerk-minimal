@@ -1,5 +1,7 @@
 import { RouteMiddleware } from "rwsdk/router";
 import { IS_DEV } from "rwsdk/constants";
+import { parsePublishableKey } from "@clerk/shared/keys"
+import { env } from "cloudflare:workers";
 
 export const setCommonHeaders =
   (): RouteMiddleware =>
@@ -24,9 +26,20 @@ export const setCommonHeaders =
       "geolocation=(), microphone=(), camera=()",
     );
 
+    const { frontendApi } = parsePublishableKey(env.CLERK_PUBLISHABLE_KEY)!
+
     // Defines trusted sources for content loading and script execution:
     headers.set(
       "Content-Security-Policy",
-      `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; frame-src https://challenges.cloudflare.com; object-src 'none';`,
+      `
+        default-src 'self';
+        script-src 'self' 'strict-dynamic' 'nonce-${nonce}' https://${frontendApi} https://challenges.cloudflare.com;
+        connect-src 'self' https://${frontendApi};
+        img-src 'self' https://img.clerk.com;
+        style-src 'self' 'unsafe-inline';
+        frame-src https://challenges.cloudflare.com;
+        object-src 'none';
+        form-action 'self';
+      `.replace(/\s{2,}/g, ' ').trim()
     );
   };

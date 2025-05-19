@@ -1,19 +1,15 @@
-import type { ClerkProviderProps } from '@clerk/clerk-react';
-import ClientClerkProvider from './ClientClerkProvider';
+import { ClerkProvider } from './ClerkProvider';
 import { requestInfo } from 'rwsdk/worker';
 import { env } from 'cloudflare:workers';
+import type { PropsWithChildren } from 'react';
 
-export function Layout({
-	children,
-	...rest
-}: ClerkProviderProps) {
+export const Layout = ({ children }: PropsWithChildren) => {
 	return (
-		<ClientClerkProvider
-			{...rest}
+		<ClerkProvider
 			initialState={JSON.parse(JSON.stringify(requestInfo.ctx.auth))}
       publishableKey={env.CLERK_PUBLISHABLE_KEY}
 		>
 			{children}
-		</ClientClerkProvider>
+		</ClerkProvider>
 	);
 }
