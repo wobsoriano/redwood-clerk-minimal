@@ -8,6 +8,8 @@ export const Layout = ({ children }: PropsWithChildren) => {
 		<ClerkProvider
 			initialState={JSON.parse(JSON.stringify(requestInfo.ctx.auth))}
       publishableKey={env.CLERK_PUBLISHABLE_KEY}
+      signInUrl={env.CLERK_SIGN_IN_URL}
+      signUpUrl={env.CLERK_SIGN_UP_URL}
 		>
 			{children}
 		</ClerkProvider>

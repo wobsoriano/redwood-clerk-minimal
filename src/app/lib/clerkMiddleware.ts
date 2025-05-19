@@ -1,6 +1,5 @@
 import type { RouteMiddleware } from 'rwsdk/router';
 import { clerkClient } from './clerkClient';
-import { env } from 'cloudflare:workers';
 
 export type { AuthObject } from '@clerk/backend';
 
