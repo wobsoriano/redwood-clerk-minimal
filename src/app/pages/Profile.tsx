@@ -4,8 +4,7 @@ import { clerkClient } from "redwood-clerk/server";
 import type { RequestInfo } from "rwsdk/worker";
 
 export async function Profile({ ctx }: RequestInfo) {
-  // We have an interruptor and we're sure ctx.auth is available
-  const { userId } = ctx.auth!
+  const { userId } = await ctx.auth()
 
   const user = await clerkClient().users.getUser(userId!)
 
