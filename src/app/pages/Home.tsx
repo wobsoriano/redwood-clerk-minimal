@@ -1,19 +1,16 @@
-import { RequestInfo } from "rwsdk/worker";
 import { Layout } from "@/app/components/Layout";
 import { link } from "@/app/shared/links";
+import { SignedIn, SignedOut } from "redwood-clerk";
 
-export function Home({ ctx }: RequestInfo) {
-  if (!ctx.auth?.userId) {
-    return (
-      <Layout>
-        <a href={link('/sign-in')}>Go to sign in page</a>
-      </Layout>
-    )
-  }
-
+export function Home() {
   return (
     <Layout>
-      <a href={link('/profile')}>Go to profile page</a>
+      <SignedIn>
+        <a href={link('/profile')}>Go to profile page</a>
+      </SignedIn>
+      <SignedOut>
+        <a href={link('/sign-in')}>Go to sign in page</a>
+      </SignedOut>
     </Layout>
   )
 }

@@ -1,5 +1,5 @@
-import { Layout } from "../components/Layout";
-import { SignIn as SignInComponent } from "@/app/components/SignIn"
+import { Layout } from "@/app/components/Layout";
+import { SignIn as SignInComponent } from "redwood-clerk"
 
 export function SignIn() {
   return (
