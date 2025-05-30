@@ -22,16 +22,15 @@
     "types": "tsc"
   },
   "dependencies": {
-    "@clerk/shared": "^3.9.1",
     "redwood-clerk": "^0.0.21",
-    "rwsdk": "0.0.84"
+    "rwsdk": "0.0.88-test.20250603060211"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/node": "^22.15.28",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
     "typescript": "^5.8.3",
-    "vite": "^6.2.6",
-    "wrangler": "^4.14.1"
+    "vite": "^6.3.5",
+    "wrangler": "^4.18.0"
   }
 }

@@ -1,7 +1,7 @@
 import { ClerkProvider } from 'redwood-clerk';
 import type { PropsWithChildren } from 'react';
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const AppLayout = ({ children }: PropsWithChildren) => {
 	return (
 		<ClerkProvider>
 			{children}
