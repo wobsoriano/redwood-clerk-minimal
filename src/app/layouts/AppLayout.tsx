@@ -1,9 +1,9 @@
-import { ClerkProvider } from './ClerkProvider';
+import { ClerkProvider } from '@/app/components/ClerkProvider';
 import { requestInfo } from 'rwsdk/worker';
 import { env } from 'cloudflare:workers';
 import type { PropsWithChildren } from 'react';
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const AppLayout = ({ children }: PropsWithChildren) => {
 	return (
 		<ClerkProvider
 			initialState={JSON.parse(JSON.stringify(requestInfo.ctx.auth))}
