@@ -1,7 +1,7 @@
 import { ClerkProvider } from 'redwood-clerk';
-import type { PropsWithChildren } from 'react';
+import { requestInfo } from 'rwsdk/worker';
 
-export const AppLayout = ({ children }: PropsWithChildren) => {
+export const AppLayout = () => {
 	return (
 		<ClerkProvider>
 			{children}

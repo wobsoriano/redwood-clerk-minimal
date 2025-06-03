@@ -1,5 +1,6 @@
 import { UserButton, UserProfile } from "redwood-clerk"
 import { clerkClient } from "redwood-clerk/server";
+
 import type { RequestInfo } from "rwsdk/worker";
 
 export async function Profile({ ctx }: RequestInfo) {

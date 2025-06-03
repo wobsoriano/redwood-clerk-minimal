@@ -1,6 +1,6 @@
 import { link } from "@/app/shared/links";
 import { SignedIn, SignedOut } from "redwood-clerk";
-
+  
 export function Home() {
   return (
     <>
