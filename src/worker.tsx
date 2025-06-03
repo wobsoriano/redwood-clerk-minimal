@@ -4,7 +4,7 @@ import { layout, index, render, route, RouteMiddleware } from "rwsdk/router";
 import { Document } from "@/app/Document";
 import { Home } from "@/app/pages/Home";
 import { setCommonHeaders } from "@/app/headers";
-import { clerkMiddleware, type AuthObject } from '@/app/lib/clerkMiddleware'
+import { clerkMiddleware, type AuthObject } from 'redwood-clerk/server'
 import { SignIn } from "@/app/pages/SignIn";
 import { SignUp } from "@/app/pages/SignUp";
 import { Profile } from "@/app/pages/Profile";
@@ -12,12 +12,13 @@ import { link } from "@/app/shared/links";
 import { AppLayout } from "@/app/layouts/AppLayout";
 
 export type AppContext = {
-  auth: AuthObject | null
+  auth(): Promise<AuthObject>
 };
 
-const IsGuest: RouteMiddleware = ({ ctx }) => {
-  // Redirect to profile if already authenticated
-  if (ctx.auth?.userId) {
+const IsGuest: RouteMiddleware = async ({ ctx }) => {
+  const { userId } = await ctx.auth()
+
+  if (userId) {
     return new Response(null, {
       status: 302,
       headers: {
@@ -27,9 +28,10 @@ const IsGuest: RouteMiddleware = ({ ctx }) => {
   }
 }
 
-const IsAuthenticated: RouteMiddleware = ({ ctx }) => {
-  // Redirect to sign-in if not authenticated
-  if (!ctx.auth?.userId) {
+const IsAuthenticated: RouteMiddleware = async ({ ctx }) => {
+  const { userId } = await ctx.auth()
+
+  if (!userId) {
     return new Response(null, {
       status: 302,
       headers: {

@@ -1,9 +1,5 @@
-import { SignUp as SignUpComponent } from "@/app/components/SignUp"
+import { SignUp as SignUpComponent } from "redwood-clerk"
 
 export function SignUp() {
-  return (
-    <>
-      <SignUpComponent />
-    </>
-  );
+  return <SignUpComponent />;
 }
