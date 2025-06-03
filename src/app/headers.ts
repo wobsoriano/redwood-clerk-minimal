@@ -1,7 +1,6 @@
 import { RouteMiddleware } from "rwsdk/router";
 import { IS_DEV } from "rwsdk/constants";
-import { parsePublishableKey } from "@clerk/shared/keys"
-import { env } from "cloudflare:workers";
+import { frontendApi } from "redwood-clerk/server"
 
 export const setCommonHeaders =
   (): RouteMiddleware =>
@@ -25,8 +24,6 @@ export const setCommonHeaders =
       "Permissions-Policy",
       "geolocation=(), microphone=(), camera=()",
     );
-
-    const { frontendApi } = parsePublishableKey(env.CLERK_PUBLISHABLE_KEY)!
 
     // Defines trusted sources for content loading and script execution:
     headers.set(

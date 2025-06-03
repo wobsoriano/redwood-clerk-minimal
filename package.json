@@ -22,7 +22,7 @@
     "types": "tsc"
   },
   "dependencies": {
-    "redwood-clerk": "^0.0.21",
+    "redwood-clerk": "^0.0.22",
     "rwsdk": "0.0.88-test.20250603060211"
   },
   "devDependencies": {
