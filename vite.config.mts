@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { redwood } from "rwsdk/vite";
-import { createRequire } from "node:module";
 
 export default defineConfig({
   resolve: {
