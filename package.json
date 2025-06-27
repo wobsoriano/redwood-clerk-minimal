@@ -22,8 +22,8 @@
     "types": "tsc"
   },
   "dependencies": {
-    "redwood-clerk": "^0.0.22",
-    "rwsdk": "0.1.0-alpha.3"
+    "redwood-clerk": "^0.1.1",
+    "rwsdk": "0.1.3"
   },
   "devDependencies": {
     "@types/node": "^22.15.28",
