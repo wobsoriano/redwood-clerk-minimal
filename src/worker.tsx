@@ -4,16 +4,14 @@ import { layout, index, render, route, RouteMiddleware } from "rwsdk/router";
 import { Document } from "@/app/Document";
 import { Home } from "@/app/pages/Home";
 import { setCommonHeaders } from "@/app/headers";
-import { clerkMiddleware, type AuthObject } from 'redwood-clerk/server'
+import { clerkMiddleware, type ClerkAppContext } from 'redwood-clerk/server'
 import { SignIn } from "@/app/pages/SignIn";
 import { SignUp } from "@/app/pages/SignUp";
 import { Profile } from "@/app/pages/Profile";
 import { link } from "@/app/shared/links";
 import { AppLayout } from "@/app/layouts/AppLayout";
 
-export type AppContext = {
-  auth(): Promise<AuthObject>
-};
+export type AppContext = ClerkAppContext & {};
 
 const IsGuest: RouteMiddleware = async ({ ctx }) => {
   const { userId } = await ctx.auth()
